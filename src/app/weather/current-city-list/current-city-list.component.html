@@ -1,0 +1,7 @@
+<app-city-selection-form (selectedZipCode)="addCity($event)"></app-city-selection-form>
+<app-current-city
+    *ngFor="let currentWeather of currentWeathers"
+    [city]="currentWeather.city"
+    [weather]="currentWeather.weather"
+    (closedCity)="removeCity($event)"
+></app-current-city>
