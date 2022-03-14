@@ -1,9 +1,9 @@
-<div class="panel panel-default" *ngIf="forecastWeather$ | async as forecastWeather; else noCity">
-    <div class="panel-heading">
-        <h3 class="panel-title">5-day forecast for {{ forecastWeather.city.name }}</h3>
+<div *ngIf="forecastWeather$ | async as forecastWeather; else noCity">
+    <div>
+        <h3>5-day forecast for {{ forecastWeather.city.name }}</h3>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor="let weather of forecastWeather.weathers">
+    <ul>
+        <li *ngFor="let weather of forecastWeather.weathers">
             {{ weather.datetime | date: 'fullDate' }}: {{ weather.condition }} - Min: {{ weather.temperatureMin }} -
             Max: {{ weather.temperatureMax }}
 
@@ -15,4 +15,4 @@
     <div>The city doesn't exist</div>
 </ng-template>
 
-<button class="btn btn-success" tabindex="0" id="mainPageBtn" routerLink="/">&lt; Back to main page</button>
+<button tabindex="0" id="mainPageBtn" routerLink="/">&lt; Back to main page</button>

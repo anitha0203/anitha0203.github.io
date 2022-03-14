@@ -15,11 +15,13 @@ export class CurrentCityListComponent implements OnInit {
     constructor(private cityService: CityService, private weatherService: WeatherService) {}
 
     ngOnInit(): void {
-        this.cityService.getZipCodes().forEach((zipCode: string) => this.addCity(zipCode));
+        this.cityService.getZipCodes().forEach((zipCode: string) => 
+        this.addCity(zipCode));
     }
 
     public addCity(zipCode: string): void {
-        if (this.currentWeathers.map((cw: CurrentWeatherModel) => cw.city.zipCode).includes(zipCode)) {
+        if (this.currentWeathers.map((cw: CurrentWeatherModel) => 
+        cw.city.zipCode).includes(zipCode)) {
             console.error('City has already been added');
             return;
         }
@@ -35,6 +37,7 @@ export class CurrentCityListComponent implements OnInit {
 
     public removeCity(city: CityModel): void {
         this.cityService.removeZipCode(city.zipCode);
-        this.currentWeathers = this.currentWeathers.filter((cw) => cw.city.zipCode !== city.zipCode);
+        this.currentWeathers = this.currentWeathers.filter((cw) =>
+         cw.city.zipCode !== city.zipCode);
     }
 }
